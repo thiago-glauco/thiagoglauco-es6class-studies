@@ -1,7 +1,24 @@
 // Import stylesheets
 import './style.css';
-
+import { Car } from './classes/car.js';
+import { Vehicle } from './classes/vehicle';
+import { Drone } from './classes/drone';
 // Write Javascript code!
+
+let c = new Car( 'abc1234' );
+let d = new Drone();
+console.log( c instanceof Car);
+console.log( c instanceof Vehicle);
+console.log( c instanceof Object);
+
+console.log( d instanceof Object);
+
+console.log("This car license is " + c.licenseNum);
+console.log("This car gps is " + (c.gpsEnabled? 'enabled' : 'disabled'));
+console.log("Starting the car: ");
+c.start();
+
+/*
 class Drone {
   constructor( id, name ) {
     this._id = id;
@@ -44,4 +61,4 @@ console.log( drone );
 console.log( drone instanceof Drone);
 console.dir(drone);
 let droneId = 5;
-console.log(window.droneId);
+console.log(window.droneId);*/
