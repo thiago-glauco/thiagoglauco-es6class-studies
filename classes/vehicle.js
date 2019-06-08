@@ -1,8 +1,8 @@
 export class Vehicle {
-  constructor( licenseNum ) {
-    console.log("Building a new Vehicle");
-    this.licenseNum = licenseNum;
-    this.gpsEnabled = true;
+  constructor( license, model, latLong ) {
+    this.license = license;
+    this.model = model;
+    this.latLong = latLong;
   }
   start() {
     console.log("Engines are on");

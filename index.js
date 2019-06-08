@@ -3,8 +3,15 @@ import './style.css';
 import { Car } from './classes/car.js';
 import { Vehicle } from './classes/vehicle';
 import { Drone } from './classes/drone';
+import { FLEET } from './services/fleet-data';
+import { FleetDataService } from './services/fleet-data-service';
 // Write Javascript code!
 
+const fleetData = new FleetDataService();
+fleetData.loadData( FLEET );
+console.dir(fleetData.drones);
+
+/*
 let c = new Car( 'abc1234' );
 let d = new Drone();
 console.log( c instanceof Car);
