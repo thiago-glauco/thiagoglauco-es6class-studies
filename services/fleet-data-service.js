@@ -14,9 +14,13 @@ export class FleetDataService {
 
     for (let data of fleet ){
       switch( data.type ) {
-        case 'car': 
-          let car = this.createObject(data);
-          this.cars.push( car );
+        case 'car':
+          if( this.validateCarData( data )) {
+            let car = this.createObject(data);
+            this.cars.push( car );
+          } else {
+            this.errors.push( new DataError( "Invalid car data", data))
+          }
           break;
         case 'drone':
           let drone = this.createObject(data);
@@ -53,5 +57,21 @@ export class FleetDataService {
         }
         return null;
     }
+  }
+
+  validateCarData( car ) {
+    let requiredProps = 'license model make miles latLong'.split(' ');
+    let hasErrors = false;
+    for( let field of requiredProps ) {
+      if( !car[field] ) {
+        this.errors.push(new DataError(`Absence of ${field} field in car object`, car));
+        hasErrors = true;
+      }
+    }
+    if( Number.isNaN(Number.parseFloat(car.miles))) {
+      this.errors.push( new DataError( 'invalid mileage', car));
+      hasErrors = true;
+    }
+    return !hasErrors
   }
 }
