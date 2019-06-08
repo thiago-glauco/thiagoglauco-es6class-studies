@@ -41,6 +41,7 @@ export class FleetDataService {
         } catch {
           this.errors.push( new DataError('Error loading car', obj))
         }
+        return null;
       case 'drone':
         try{
           let d = new Drone(obj.license, obj.model, obj.latLong)
@@ -50,6 +51,7 @@ export class FleetDataService {
         } catch {
           this.errors.push( new DataError('Error loading drone', obj))
         }
+        return null;
     }
   }
 }
