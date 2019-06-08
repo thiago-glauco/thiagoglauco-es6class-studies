@@ -17,6 +17,7 @@ export class FleetDataService {
           this.cars.push( car );
           break;
         case 'drone':
+        let drone = loadObject(car);
           this.drones.push( data );
           break;
       }
@@ -34,7 +35,7 @@ export class FleetDataService {
         let d = new Car(obj.license, obj.model, obj.latLong)
         d.airTime = obj.airTime;
         d.base = obj.base;
-        return b;
+        return d;
     }
   }
 
