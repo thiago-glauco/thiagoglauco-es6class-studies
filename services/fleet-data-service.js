@@ -33,15 +33,23 @@ export class FleetDataService {
   createObject ( obj ) {
     switch( obj.type ) {
       case 'car':
-        let c = new Car(obj.license, obj.model, obj.latLong)
-        c.miles = obj.miles;
-        c.make = obj.make;
-        return c;
+        try {
+          let c = new Car(obj.license, obj.model, obj.latLong)
+          c.miles = obj.miles;
+          c.make = obj.make;
+          return c;
+        } catch {
+          this.errors.push( new DataError('Error loading car', obj))
+        }
       case 'drone':
-        let d = new Drone(obj.license, obj.model, obj.latLong)
-        d.airTime = obj.airTime;
-        d.base = obj.base;
-        return d;
+        try{
+          let d = new Drone(obj.license, obj.model, obj.latLong)
+          d.airTime = obj.airTime;
+          d.base = obj.base;
+          return d;
+        } catch {
+          this.errors.push( new DataError('Error loading drone', obj))
+        }
     }
   }
 }
