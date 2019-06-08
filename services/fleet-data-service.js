@@ -74,4 +74,10 @@ export class FleetDataService {
     }
     return !hasErrors
   }
+
+  getCarByLicense( license ) {
+    return this.cars.find( ( car ) => {
+      return car.license === license;
+    })
+  }
 }
