@@ -23,22 +23,4 @@ export class FleetDataService {
       }
     }
   }
-
-  loadObject ( obj ) {
-    switch( obj.type ) {
-      case 'car':
-        let c = new Car(obj.license, obj.model, obj.latLong)
-        c.miles = obj.miles;
-        c.make = obj.make;
-        return c;
-      case 'drone':
-        let d = new Car(obj.license, obj.model, obj.latLong)
-        d.airTime = obj.airTime;
-        d.base = obj.base;
-        return d;
-    }
-  }
-
-
-
 }
