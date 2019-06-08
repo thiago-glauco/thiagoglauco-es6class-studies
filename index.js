@@ -15,6 +15,8 @@ console.dir(fleetData.cars);
 for ( let car of fleetData.cars )
   console.log( car.license )
 
+console.dir( fleetData.errors )
+
 /*
 let c = new Car( 'abc1234' );
 let d = new Drone();

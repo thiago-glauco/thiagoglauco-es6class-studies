@@ -1,11 +1,13 @@
 import { Car } from '../classes/car';
 import { Drone } from '../classes/drone';
+import { DataError } from './data-error'
 
 export class FleetDataService {
 
   constructor( ) {
     this.cars = [];
     this.drones = [];
+    this.errors = [];
   }
 
   loadData( fleet ) {
@@ -13,18 +15,22 @@ export class FleetDataService {
     for (let data of fleet ){
       switch( data.type ) {
         case 'car': 
-          let car = this.loadObject(data);
+          let car = this.createObject(data);
           this.cars.push( car );
           break;
         case 'drone':
-        let drone = this.loadObject(data);
+          let drone = this.createObject(data);
           this.drones.push( drone );
+          break;
+        default:
+          let e = new DataError('Invalid vehicle type', data );
+          this.errors.push( e );
           break;
       }
     }
   }
 
-  loadObject ( obj ) {
+  createObject ( obj ) {
     switch( obj.type ) {
       case 'car':
         let c = new Car(obj.license, obj.model, obj.latLong)
@@ -32,7 +38,7 @@ export class FleetDataService {
         c.make = obj.make;
         return c;
       case 'drone':
-        let d = new Car(obj.license, obj.model, obj.latLong)
+        let d = new Drone(obj.license, obj.model, obj.latLong)
         d.airTime = obj.airTime;
         d.base = obj.base;
         return d;
