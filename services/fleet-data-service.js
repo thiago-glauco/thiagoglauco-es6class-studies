@@ -13,12 +13,12 @@ export class FleetDataService {
     for (let data of fleet ){
       switch( data.type ) {
         case 'car': 
-          let car = loadObject(data);
+          let car = this.loadObject(data);
           this.cars.push( car );
           break;
         case 'drone':
-        let drone = loadObject(data);
-          this.drones.push( data );
+        let drone = this.loadObject(data);
+          this.drones.push( drone );
           break;
       }
     }

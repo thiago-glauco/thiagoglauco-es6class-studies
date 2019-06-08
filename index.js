@@ -10,6 +10,10 @@ import { FleetDataService } from './services/fleet-data-service';
 const fleetData = new FleetDataService();
 fleetData.loadData( FLEET );
 console.dir(fleetData.drones);
+console.dir(fleetData.cars);
+
+for ( let car of fleetData.cars )
+  console.log( car.license )
 
 /*
 let c = new Car( 'abc1234' );
