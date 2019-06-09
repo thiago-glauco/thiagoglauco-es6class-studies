@@ -4,7 +4,9 @@ import { Car } from './classes/car.js';
 import { Vehicle } from './classes/vehicle';
 import { Drone } from './classes/drone';
 import { FLEET } from './services/fleet-data';
+import $ from "jquery";
 import { FleetDataService } from './services/fleet-data-service';
+
 // Write Javascript code!
 
 const fleetData = new FleetDataService();
