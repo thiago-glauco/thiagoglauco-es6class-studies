@@ -9,21 +9,14 @@ import { FleetDataService } from './services/fleet-data-service';
 
 const fleetData = new FleetDataService();
 fleetData.loadData( FLEET );
-console.dir(fleetData.drones);
-console.dir(fleetData.cars);
 
-for ( let car of fleetData.cars )
-  console.log( car.license )
-
-console.dir( fleetData.errors )
-
-let licensedCar = fleetData.getCarByLicense('EG789');
-console.dir(licensedCar);
-
-let cars = fleetData.getCarsSortedByLicense();
+let cars = fleetData.filterCarsByMake('a');
 for (let c of cars) {
-  console.log(c.license);
+  console.dir(c);
 }
+
+
+
 
 /*
 let c = new Car( 'abc1234' );

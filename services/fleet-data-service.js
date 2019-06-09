@@ -92,4 +92,14 @@ export class FleetDataService {
       return 0;
     });
   }
+
+  getCarsByMake( make ) {
+    return this.cars.filter( (car) => {
+      return car.make === make
+    })
+  }
+
+  filterCarsByMake( make ) {
+    return this.cars.filter( (car) => {return car.make.indexOf( make ) >= 0 });
+  }
 }
