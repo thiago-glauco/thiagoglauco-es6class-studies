@@ -86,7 +86,7 @@ export class FleetDataService {
       if( car1.license < car2.license ) {
         return -1;
       }
-      if( car1 > car2 ) {
+      if( car1.license > car2.license ) {
         return 1;
       }
       return 0;
