@@ -20,6 +20,11 @@ console.dir( fleetData.errors )
 let licensedCar = fleetData.getCarByLicense('EG789');
 console.dir(licensedCar);
 
+let cars = fleetData.getCarsSortedByLicense();
+for (let c of cars) {
+  console.log(c.license);
+}
+
 /*
 let c = new Car( 'abc1234' );
 let d = new Drone();
