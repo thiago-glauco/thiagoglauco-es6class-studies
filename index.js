@@ -7,15 +7,14 @@ import { FLEET } from './services/fleet-data';
 import $ from "jquery";
 import { Button } from './ui/button';
 import { Image } from './ui/image';
+import { TitleBar } from './ui/title-bar';
 import { FleetDataService } from './services/fleet-data-service';
 
 
-let b = new Button('Click Me');
+let titleBar = new TitleBar( 'MyApp' );
+titleBar.appendToElement($('body'));
+let b = new Button('Click me');
 b.appendToElement($('body'));
-
-let image = new Image('https://images.unsplash.com/photo-1521405924368-64c5b84bec60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
-image.appendToElement($('body'));
-
 // Write Javascript code!
 
 const fleetData = new FleetDataService();
