@@ -13,10 +13,17 @@ export class BaseElement {
 
   appendToElement( el ) {
     this.createElement();
+    this.enableJS()
     el.append( this.element );
+  }
+
+  enableJS() {
+   
   }
 
   getElementString( ) {
     throw 'Please, override getElementString in BaseElement';
   }
+
+
 }

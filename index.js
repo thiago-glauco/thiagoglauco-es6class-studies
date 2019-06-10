@@ -5,7 +5,12 @@ import { Vehicle } from './classes/vehicle';
 import { Drone } from './classes/drone';
 import { FLEET } from './services/fleet-data';
 import $ from "jquery";
+import { Button } from './ui/button';
 import { FleetDataService } from './services/fleet-data-service';
+
+
+let b = new Button('Click Me');
+b.appendToElement($('body'));
 
 // Write Javascript code!
 
